@@ -4,7 +4,7 @@
   <settings ppi="120">
     <identity>
       <id>d7b6f3ca-fa79-49c1-8b1d-6979b508ed63</id>
-      <revision>13</revision>
+      <revision>14</revision>
     </identity>
     <metadata lang="rus">
       <author>Михаил Маркин</author>
@@ -522,7 +522,7 @@
         <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
         <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
         <xaxes xmin="388" xmax="648.3" xtick="30" visible="True" decimalplaces="3" numberformat="General" />
-        <yaxes ymin="0" ymax="0.2" ytick="0.02" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="1" ytick="0.1" visible="True" decimalplaces="3" numberformat="General" />
         <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
         <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
         <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="T1, K" ylabel="ε" y2label="y2" />
