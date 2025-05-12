@@ -1,0 +1,1871 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.3.0.9126"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="120">
+    <editable>false</editable>
+    <identity>
+      <id>c28cb7a2-80e9-46dd-8cc1-63dd460d351f</id>
+      <revision>5</revision>
+    </identity>
+    <metadata lang="rus">
+      <author>Александр LeilPi</author>
+    </metadata>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>true</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="true" viewMode="0" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.73.9126.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.73.9126.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="SpecialFunctions" version="1.73.9126.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="MaximaPlugin" version="1.98.8797.27896" guid="44011c1e-5d0d-4533-8e68-e32b5badce41" />
+      <assembly name="TextRegion" version="1.73.9126.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="Nonlinear Solvers" version="1.1.7097.23301" guid="618b7e96-330a-406a-b055-9e577672f0b8" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.3.9106.25707" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="0" top="0" width="764" height="407" color="#000000" fontSize="12">
+      <text lang="rus" width="745" fontFamily="Bahnschrift Condensed" fontSize="12">
+        <content>
+          <p style="font-family: Cascadia Code;">
+            <span style="font-weight: bold;">Задача №1</span>
+            <br />По трем стальным трубам (d2 × δ = 100 × 3 мм, L = 1800 м), расположенным на открытом воздухе <br />(tж2 = -14 оС) горячая вода, подогретая в теплообменнике до tж1(0)= 120 оС, транспортируется к <br />потребителю со скоростью w = 0,55 м/с в каждой. <br />С какой температурой будет получать воду потребитель, если первая труба покрыта слоем <br />изоляции [Зонолит, δ = 50 мм], вторая – слоем бетона [λб = 1,28 Вт/(м × К), δ = 50 мм], а третья труба не изолирована. <br />Коэффициент теплоотдачи от горячей воды к внутренней поверхности труб принять α1 = 400 <br />Вт/(м2К), а с внешней поверхности каждой из трех труб к окружающему воздуху – одинаковым: α2 = 12,8 Вт/(м2К). <br />Принять теплопроводность стали, теплоёмкость и плотность воды равными 45 Вт/(м К), 4220 <br />Дж/(кг К), 958,4 кг/м3, соответственно. <span style="font-weight: bold;">Построить графики tж1(х), tж2(х), qL(x).</span> Рассчитать тепловой поток Q потерь трубопроводов в окружающую среду. <span style="font-weight: bold;">Рассмотреть несколько алгоритмов расчета и выбрать наилучший алгоритм.</span> <span style="font-weight: bold;">Проанализировать результаты расчетов с точки зрения эффективности изоляции трубопроводов. </span></p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="414" width="426" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Bauhaus 93" fontSize="12">
+        <content>
+          <p style="font-family: Cascadia Code; font-weight: bold;">Заданные параметры (задаються пользователем)</p>
+        </content>
+      </text>
+    </region>
+    <region left="522" top="441" width="101" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">w</e>
+          <e type="operand">0.55</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="450" width="104" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">d.2</e>
+          <e type="operand">100</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="108" top="450" width="77" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">δ</e>
+          <e type="operand">3</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="189" top="450" width="130" height="35" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж2</e>
+          <e type="operand">14</e>
+          <e type="operator" args="1">-</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="324" top="450" width="189" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">120</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="495" width="182" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">d.1</e>
+          <e type="operand">d.2</e>
+          <e type="operand">δ</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">mm</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">94</e>
+        </result>
+      </math>
+    </region>
+    <region left="198" top="495" width="97" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">l</e>
+          <e type="operand">1800</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="99" top="540" width="297" height="49" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">λ.2</e>
+          <e type="operand">0.072</e>
+          <e type="operand">0.000262</e>
+          <e type="operand">1</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Δt</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="522" top="540" width="139" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">λ.бет</e>
+          <e type="operand">1.28</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="549" width="95" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">δ.2</e>
+          <e type="operand">50</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="405" top="549" width="110" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">δ.бет</e>
+          <e type="operand">50</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="594" width="126" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.1</e>
+          <e type="operand">400</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="135" top="594" width="135" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.2</e>
+          <e type="operand">12.8</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="279" top="594" width="104" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">λ.c</e>
+          <e type="operand">45</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="387" top="594" width="125" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c</e>
+          <e type="operand">4220</e>
+          <e type="operand" style="unit">J</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="513" top="594" width="139" height="61" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">ρ</e>
+          <e type="operand">958.4</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="657" width="155" height="27" color="#000000" fontSize="12">
+      <text lang="rus" width="155" fontFamily="Bauhaus 93" fontSize="12">
+        <content>
+          <p style="font-family: Cascadia Code; font-weight: bold;">Решение задачи:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="702" width="745" height="65" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для начала с помощью функций дополнения <span style="font-weight: bold;">MaximaPlugin</span> найдем значения линейной плотности теплового потока через стенку трубы, температуру внутренней стенки трубы и температуру внешней стенки:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="774" width="239" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для случая без изоляции:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="846" width="464" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Расчитываем линейную плотность теплового потока </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="882" width="584" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l1</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">q.l1</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">520.7</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="981" width="133" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l1</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">520.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1089" width="464" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитывам температуру внутренней стенки трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1116" width="518" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l1</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ст1</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст1</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">388.6</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1224" width="136" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст1</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">115.5</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1269" width="436" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитывам температуру внешней стенки трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1314" width="449" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l1</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ст1</e>
+          <e type="operand">t.ст2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст2</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">388.5</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1413" width="136" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст2</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">115.4</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1467" width="333" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим коэффийиент теплопередачи:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1512" width="418" height="83" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">k</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.237</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1611" width="586" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Далее воспользуемся формулой Шухова. Для этого найдем расход:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1656" width="229" height="66" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G</e>
+          <e type="operand">ρ</e>
+          <e type="operand">w</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">π</e>
+          <e type="operand">d.2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">4.14</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1728" width="155" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Формула Шухова:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1755" width="549" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">75.79</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1845" width="263" height="27" color="#000000" fontSize="12">
+      <text lang="rus" width="263" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Функция зависимости</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1872" width="485" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="2151" width="416" height="35" color="#000000" fontSize="12">
+      <text lang="rus" width="416" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>График зависимости \[REGION[9fe4ecdd597c475b883114150c574fe3]]\:</p>
+        </content>
+        <regions>
+          <region id="9fe4ecdd597c475b883114150c574fe3" left="180" top="0" width="149" height="34" color="#000000" fontSize="12">
+            <math optimize="2">
+              <input>
+                <e type="operand">x</e>
+                <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+              </input>
+            </math>
+          </region>
+        </regions>
+      </text>
+    </region>
+    <region left="333" top="2151" width="181" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="operand">40000</e>
+          <e type="operand">10</e>
+          <e type="function" args="3">range</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="2205" width="731" height="444" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-830.9673" xmax="40171.04" xtick="10000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-30.77269" ymax="125.0475" ytick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="tж1(На выходе), '°C" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="2655" width="539" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для вторго случая когда для изоляции используется бетон:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2691" width="464" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Расчитываем линейную плотность теплового потока </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2736" width="145" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operand">δ.бет</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="2772" width="743" height="97" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l2</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.бет</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.3</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">q.l2</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">611.3</e>
+          <e type="operand" style="unit">N</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2880" width="133" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l2</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">611.3</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2988" width="464" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитывам температуру внутренней стенки трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3015" width="549" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l2</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ст1_2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст1_2</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">387.8</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3114" width="152" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст1_2</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">114.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3276" width="436" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитывам температуру внешней стенки трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3321" width="495" height="96" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.l2</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ст1_2</e>
+          <e type="operand">t.ст2_2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст2_2</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">387.7</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3420" width="152" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст2_2</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">114.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3474" width="333" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим коэффийиент теплопередачи:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3519" width="577" height="84" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">k</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.бет</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.3</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.452</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3618" width="586" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Далее воспользуемся формулой Шухова. Для этого найдем расход:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3663" width="229" height="66" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G</e>
+          <e type="operand">ρ</e>
+          <e type="operand">w</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">π</e>
+          <e type="operand">d.2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">4.14</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3735" width="155" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Формула Шухова:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3762" width="549" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">69.75</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3852" width="263" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" width="263" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Функция зависимости</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3879" width="485" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="4302" width="416" height="35" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" width="416" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>График зависимости \[REGION[9fe4ecdd597c475b883114150c574fe3]]\:</p>
+        </content>
+        <regions>
+          <region id="9fe4ecdd597c475b883114150c574fe3" left="180" top="0" width="149" height="34" color="#000000" fontSize="12">
+            <math optimize="2">
+              <input>
+                <e type="operand">x</e>
+                <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+              </input>
+            </math>
+          </region>
+        </regions>
+      </text>
+    </region>
+    <region left="333" top="4302" width="181" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="operand">40000</e>
+          <e type="operand">10</e>
+          <e type="function" args="3">range</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="4356" width="731" height="444" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-830.9673" xmax="40171.04" xtick="10000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-30.77269" ymax="125.0475" ytick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="tж1(На выходе), '°C" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="4797" width="539" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для вторго случая когда для изоляции используется бетон:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="4833" width="464" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Расчитываем линейную плотность теплового потока </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="4878" width="129" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operand">δ.2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="4932" width="177" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt</e>
+          <e type="operand">t.ст1_3</e>
+          <e type="operand">t.ст2_3</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="4986" width="623" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для решения системы уравнения воспользуемся дополнением FindRoot:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="5031" width="754" height="274" color="#000000" fontSize="12">
+      <math optimize="2">
+        <input>
+          <e type="operand">sol</e>
+          <e type="operand">q.l3</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.3</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">q.l3</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ст1_3</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">q.l3</e>
+          <e type="operand">π</e>
+          <e type="operand">t.ст1_3</e>
+          <e type="operand">t.ст2_3</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="operand">q.l3</e>
+          <e type="operand">200</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст1_3</e>
+          <e type="operand">50</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.ст2_3</e>
+          <e type="operand">50</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+          <e type="function" args="2">FindRoot</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="5364" width="124" height="74" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">sol</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">175.2</e>
+          <e type="operand">391.6</e>
+          <e type="operand">391.6</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="5436" width="155" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Следовательно  </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="5463" width="116" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.13</e>
+          <e type="operand">175</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="5517" width="154" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст1_3</e>
+          <e type="operand">391.62</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="5553" width="154" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ст2_3</e>
+          <e type="operand">391.61</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="5589" width="333" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим коэффийиент теплопередачи:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="5634" width="571" height="84" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">k</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">2</e>
+          <e type="operand">λ.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">d.3</e>
+          <e type="operand">d.2</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operand">d.3</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.4162</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="5742" width="586" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Далее воспользуемся формулой Шухова. Для этого найдем расход:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="5787" width="229" height="66" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G</e>
+          <e type="operand">ρ</e>
+          <e type="operand">w</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">π</e>
+          <e type="operand">d.2</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">4.14</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="5859" width="155" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Формула Шухова:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="5886" width="549" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">103.1</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="5976" width="263" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" width="263" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Функция зависимости</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="6003" width="485" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operand">t.ж1\0028\на\0020\входе\0029\</e>
+          <e type="operand">t.ж2</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand">e</e>
+          <e type="operand">k</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="6444" width="416" height="35" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" width="416" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>График зависимости \[REGION[9fe4ecdd597c475b883114150c574fe3]]\:</p>
+        </content>
+        <regions>
+          <region id="9fe4ecdd597c475b883114150c574fe3" left="180" top="0" width="149" height="34" color="#000000" fontSize="12">
+            <math optimize="2">
+              <input>
+                <e type="operand">x</e>
+                <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+              </input>
+            </math>
+          </region>
+        </regions>
+      </text>
+    </region>
+    <region left="333" top="6444" width="181" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="operand">40000</e>
+          <e type="operand">10</e>
+          <e type="function" args="3">range</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="6480" width="731" height="444" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-830.9673" xmax="40171.04" xtick="10000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-30.77269" ymax="125.0475" ytick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="tж1(На выходе), '°C" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="function" args="1">t.ж1\0028\на\0020\выходе\0029\</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="6930" width="502" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитаем тепловые потери для данных трех случаев: </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="6957" width="136" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Без изоляции:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="6975" width="234" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.1</e>
+          <e type="operand">q.l1</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">9.372</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7011" width="220" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>С покрытием из бетона:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7029" width="215" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.2</e>
+          <e type="operand">q.l2</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.1</e>
+          <e type="operand">10</e>
+          <e type="operand">6</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7074" width="239" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>С покрытием из Зонолита:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7092" width="224" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.3</e>
+          <e type="operand">q.13</e>
+          <e type="operand">l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">3.15</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7515" width="248" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Графики зависимостей Q(x)</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7542" width="181" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">10000</e>
+          <e type="operand">10</e>
+          <e type="function" args="3">range</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="7569" width="136" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Без изоляции:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7587" width="731" height="444" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-657.4203" xmax="10000" xtick="1000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-1816838" ymax="1.090124E+07" ytick="4000000" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="Q, Вт" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">Q.1</e>
+          <e type="operand">q.l1</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="8019" width="220" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>С покрытием из бетона:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="8046" width="731" height="444" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-657.4203" xmax="10000" xtick="1000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-1816838" ymax="1.090124E+07" ytick="4000000" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="Q, Вт" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">Q.2</e>
+          <e type="operand">q.l2</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="8586" width="239" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>С покрытием из Зонолита:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="8622" width="731" height="444" color="#000000" fontSize="12">
+      <xyplot width="721" height="436" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-657.4203" xmax="10000" xtick="1000" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-1816838" ymax="1.090124E+07" ytick="4000000" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x, м" ylabel="Q, Вт" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">Q.2</e>
+          <e type="operand">q.l3</e>
+          <e type="operand">x</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">0</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">+</e>
+          <e type="operand">500000</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+  </regions>
+</worksheet>

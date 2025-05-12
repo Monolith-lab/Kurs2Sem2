@@ -1,0 +1,929 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.3.0.9126"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="120">
+    <editable>false</editable>
+    <identity>
+      <id>3ae5ba6b-99d5-4761-80b7-0e4ffe5fd956</id>
+      <revision>5</revision>
+    </identity>
+    <metadata lang="rus">
+      <author>Александр LeilPi</author>
+    </metadata>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>true</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="true" viewMode="0" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.73.9126.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.73.9126.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="MaximaPlugin" version="1.98.8797.27896" guid="44011c1e-5d0d-4533-8e68-e32b5badce41" />
+      <assembly name="TextRegion" version="1.73.9126.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="WaterSteamPro" version="0.8.9095.11561" guid="62633630-5340-409b-af53-4b8a6612b670" />
+      <assembly name="CoolProp Wrapper" version="6.4.8214.13502" guid="ca92ef03-c7da-4888-98ad-528482733e2f" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="0" top="0" width="745" height="483" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>
+            <span style="font-weight: bold;">Задача №2</span>
+            <br />Масло марки МК, протекая через бак с расходом G2=0,12 кг/с, нагревается в нём от температуры t'ж2=34 оС до температуры t''ж2=69 оС. Греющим теплоносителем является сухой насыщенный водяной пар, конденсирующийся в горизонтальных змеевиках при давлении Р1=2,1 бар, смонтированных внутри бака. Для снижения тепловых потерь бак покрыт слоем тепловой изоляции. Требуется определить величину поверхности змеевиков F1, м2, и расход греющего пара G1, кг/с. <br />Для расчёта заданы следующие величины: <br />1. <span style="font-weight: bold;">Коэффициент теплоотдачи от пара к внутренней стенке </span><br /><span style="font-weight: bold;">поверхности змеевиков</span> α1 = 4200 Вт/(м2 К);       <br />2. <span style="font-weight: bold;">Коэффициент теплоотдачи от наружной стенки </span><br /><span style="font-weight: bold;">поверхности змеевиков к маслу</span> α2 = 116 Вт/(м2 К);     <br />3. <span style="font-weight: bold;">Коэффициент теплоотдачи от масла к стенкам бака</span> α3 = 43 Вт/(м2 К);   <br />4. <span style="font-weight: bold;">Коэффициент теплоотдачи от изоляции бака к воздуху</span> α4 = 7 Вт/(м2 К);  <br />5. <span style="font-weight: bold;">Температура окружающего воздуха</span> tж3 = -13 оС;       <br />6. <span style="font-weight: bold;">Толщина стенки бака</span> δ1 = 4 мм;      <br />7. <span style="font-weight: bold;">Толщина изоляции</span><span style="font-weight: bold;"> бака</span> δ2 = 20 мм;      <br />8. <span style="font-weight: bold;">Поверхность бака</span> F2 = 5 м2.        <br />Бак изготовлен из стали с теплопроводностью λ(t) = 54.6 - 0.0422t Вт/(мК), для тепловой изоляции использован (а) Совелит. Тепловые потери определить как для постоянной теплопроводности материалов, так и с учетом её зависимости от температуры. <br />Термическим сопротивлением стенки змеевиков пренебречь, изменением внешней поверхности бака из-за его изоляции пренебречь, применить формулы для теплопередачи через плоскую стенку.</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="522" width="408" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Заданые параметры (задается пользователем)</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="558" width="118" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G.2</e>
+          <e type="operand">0.12</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="468" top="558" width="135" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.1</e>
+          <e type="operand">4200</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="117" top="567" width="112" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t'.ж2</e>
+          <e type="operand">34</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="225" top="567" width="122" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t''.ж2</e>
+          <e type="operand">69</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="351" top="567" width="114" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">p.1</e>
+          <e type="operand">2.1</e>
+          <e type="operand" style="unit">bar</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="612" width="126" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.2</e>
+          <e type="operand">116</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="135" top="612" width="116" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.3</e>
+          <e type="operand">43</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="252" top="612" width="107" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α.4</e>
+          <e type="operand">7</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="360" top="621" width="118" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж3</e>
+          <e type="operand">13</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="486" top="621" width="85" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">δ.1</e>
+          <e type="operand">4</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="108" top="666" width="88" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">F.2</e>
+          <e type="operand">5</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="675" width="95" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">δ.2</e>
+          <e type="operand">20</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="333" top="702" width="248" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ср</e>
+          <e type="operand">t'.ж2</e>
+          <e type="operand">t''.ж2</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">324.6</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="711" width="272" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt</e>
+          <e type="function" args="1">λ</e>
+          <e type="operand">54.6</e>
+          <e type="operand">0.0422</e>
+          <e type="operand">Δt</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="756" width="148" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">λ.из1</e>
+          <e type="operand">0.090</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="801" width="326" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt</e>
+          <e type="function" args="1">λ.из2</e>
+          <e type="operand">0.090</e>
+          <e type="operand">0.000087</e>
+          <e type="operand">Δt</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="846" width="352" height="46" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Решение:<br />Интерполируем значения для масла МК:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="891" width="351" height="55" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c'</e>
+          <e type="operand">30</e>
+          <e type="operand">40</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">1.758</e>
+          <e type="operand">1.804</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">34</e>
+          <e type="function" args="3">linterp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.776</e>
+        </result>
+      </math>
+    </region>
+    <region left="351" top="891" width="361" height="55" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c''</e>
+          <e type="operand">60</e>
+          <e type="operand">70</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">1.897</e>
+          <e type="operand">1.943</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">mat</e>
+          <e type="operand">69</e>
+          <e type="function" args="3">linterp</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">1.938</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="954" width="144" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c'</e>
+          <e type="operand">1.776</e>
+          <e type="operand" style="unit">kJ</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="351" top="954" width="154" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c''</e>
+          <e type="operand">1.938</e>
+          <e type="operand" style="unit">kJ</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="999" width="267" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим значения энтальпии:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1017" width="258" height="50" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">h'</e>
+          <e type="operand">c'</e>
+          <e type="operand">t'.ж2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">J</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">5.455</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="279" top="1017" width="287" height="50" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">h''</e>
+          <e type="operand">c''</e>
+          <e type="operand">t''.ж2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">J</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">6.631</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1089" width="595" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Найдем теплоемкость парообразования с помощью CoolProp Wrapper</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1125" width="675" height="27" color="#000000" fontSize="12">
+      <text lang="rus" width="675" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для этого сначала надем h' и h''(Используем формуляцию 1997 года)</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1170" width="628" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">h'.п</e>
+          <e type="operand" style="string">H</e>
+          <e type="operand" style="string">P</e>
+          <e type="operand">p.1</e>
+          <e type="operand" style="string">Q</e>
+          <e type="operand">0</e>
+          <e type="operand" style="string">IF97::Water</e>
+          <e type="function" args="6">CoolProp_Props</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kJ</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">511.3</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1224" width="628" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">h''.п</e>
+          <e type="operand" style="string">H</e>
+          <e type="operand" style="string">P</e>
+          <e type="operand">p.1</e>
+          <e type="operand" style="string">Q</e>
+          <e type="operand">1</e>
+          <e type="operand" style="string">IF97::Water</e>
+          <e type="function" args="6">CoolProp_Props</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kJ</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2708</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1278" width="145" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Рассчитываем r</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1305" width="224" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">h''.п</e>
+          <e type="operand">h'.п</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kJ</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">2197</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1359" width="295" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Теперь рассчитаем расход пара:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1386" width="478" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G.2</e>
+          <e type="operand">h''</e>
+          <e type="operand">h'</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">G.1</e>
+          <e type="operand">r</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">G.1</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.006422</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1431" width="154" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">G.1</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.006422</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1494" width="764" height="46" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>С помощью WaterSteamPro найдем значение температуры внутри змеевика. Она должна соответствовать температуры насыщения для давления p1.</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1548" width="236" height="36" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.s</e>
+          <e type="operand">p.1</e>
+          <e type="function" args="1">wspTSP</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">121.8</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1593" width="286" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим значение λ для стали:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1620" width="307" height="56" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.1</e>
+          <e type="function" args="1">λ.ст</e>
+          <e type="operand">54.6</e>
+          <e type="operand">0.0422</e>
+          <e type="operand">Δt.1</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1674" width="222" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.1</e>
+          <e type="operand">t.s</e>
+          <e type="operand">t.ср</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">86.63</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1728" width="183" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.1</e>
+          <e type="function" args="1">λ.ст</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">50.94</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1773" width="314" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим значение λ для изоляции:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1800" width="341" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.2</e>
+          <e type="function" args="1">λ.из2</e>
+          <e type="operand">0.090</e>
+          <e type="operand">0.000087</e>
+          <e type="operand">Δt.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1845" width="221" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.2</e>
+          <e type="operand">t.ж3</e>
+          <e type="operand">t.ср</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">19.25</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1899" width="465" height="56" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Δt.2</e>
+          <e type="function" args="1">λ.из2</e>
+          <e type="operand">0.090</e>
+          <e type="operand">0.000087</e>
+          <e type="operand">Δt.2</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.06791</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1962" width="511" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим значение плотности теплового потока для бака:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2007" width="430" height="90" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.б</e>
+          <e type="operand">t.ср</e>
+          <e type="operand">t.ж3</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">1</e>
+          <e type="operand">α.3</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">δ.1</e>
+          <e type="operand">Δt.1</e>
+          <e type="function" args="1">λ.ст</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">δ.2</e>
+          <e type="operand">Δt.2</e>
+          <e type="function" args="1">λ.из2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operand">1</e>
+          <e type="operand">α.4</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kW</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">1.326</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2151" width="267" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Потери теплоты в окр. среду</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2196" width="217" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.Пот</e>
+          <e type="operand">q.б</e>
+          <e type="operand">F.2</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kW</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">6.629</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2232" width="511" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Найдем кол. теплоты выделенной паром при конденсации </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2268" width="186" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q</e>
+          <e type="operand">G.1</e>
+          <e type="operand">r</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kW</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">14.11</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2304" width="464" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Кол. теплоты с учетом потерь в окружающую среду:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2340" width="216" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.о</e>
+          <e type="operand">Q</e>
+          <e type="operand">Q.Пот</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kW</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">7.481</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2376" width="520" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Найдем плотность теплового потока от змеевика к маслу:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2421" width="239" height="81" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">q.зм</e>
+          <e type="operand">t.s</e>
+          <e type="operand">t.ср</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">1</e>
+          <e type="operand">α.1</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operand">α.2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kW</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">7.931</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2511" width="248" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Находим площадь змеевика:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="2547" width="381" height="48" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.о</e>
+          <e type="operand">q.зм</e>
+          <e type="operand">F.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">F.1</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9433</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2592" width="133" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">F.1</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9433</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+  </regions>
+</worksheet>
