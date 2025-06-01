@@ -4,7 +4,7 @@
   <settings ppi="120">
     <identity>
       <id>0d9b6f12-c9cd-485f-a7b0-64b4e45313b7</id>
-      <revision>25</revision>
+      <revision>38</revision>
     </identity>
     <metadata lang="rus">
       <author>Михаил Маркин</author>
@@ -322,7 +322,7 @@
           <e type="operand">ω</e>
           <e type="operator" args="2">*</e>
           <e type="operand">π</e>
-          <e type="operand">d.2</e>
+          <e type="operand">d.1</e>
           <e type="operand">2</e>
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">*</e>
@@ -337,45 +337,25 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">8.1294</e>
+          <e type="operand">7.1832</e>
         </result>
       </math>
     </region>
-    <region left="0" top="1404" width="536" height="35" color="#000000" fontSize="12">
-      <text lang="rus" fontFamily="Arial" fontSize="12">
-        <content>
-          <p>Ввиду технических особенностей SMath переопределим \[REGION[059a55e3626e429dbc20923b522db8b8]]\</p>
-        </content>
-        <regions>
-          <region id="059a55e3626e429dbc20923b522db8b8" left="429" top="0" width="102" height="34" color="#000000" fontSize="12">
-            <math>
-              <input>
-                <e type="operand">t.ж2</e>
-                <e type="operand">9</e>
-                <e type="operand" style="unit">Δ°C</e>
-                <e type="operator" args="2">*</e>
-                <e type="operator" args="2">:</e>
-              </input>
-            </math>
-          </region>
-        </regions>
-      </text>
-    </region>
-    <region left="0" top="1449" width="383" height="26" color="#000000" fontSize="12">
+    <region left="0" top="1440" width="383" height="26" color="#000000" fontSize="12">
       <text lang="rus" fontFamily="Arial" fontSize="12">
         <content>
           <p>Теперь приступим к рассчёту трубы с золонитом:</p>
         </content>
       </text>
     </region>
-    <region left="0" top="1494" width="708" height="62" color="#000000" fontSize="12">
+    <region left="0" top="1485" width="708" height="62" color="#000000" fontSize="12">
       <text lang="rus" fontFamily="Arial" fontSize="12">
         <content>
           <p>Используя формулу Фурье для теплового потока (частный случай - цилиндрическая стенка) определим линейную плотность теплового потока через цилиндрическую стенку, а также определим температуру стенок:</p>
         </content>
       </text>
     </region>
-    <region left="0" top="1566" width="705" height="44" color="#000000" fontSize="12">
+    <region left="0" top="1557" width="705" height="44" color="#000000" fontSize="12">
       <text lang="rus" fontFamily="Arial" fontSize="12">
         <content>
           <p>Будем считать, что коээфциент теплопроводности зонолита постоянен и равен показателю теплопроводности для легкого пористого бетона.</p>
@@ -401,12 +381,25 @@
       <math>
         <input>
           <e type="operand">q.x</e>
-          <e type="operand">π</e>
           <e type="operand">t.ж1</e>
           <e type="operand">t.ж2</e>
           <e type="operator" args="2">-</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operand">π</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">π</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">-</e>
           <e type="bracket">(</e>
           <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
           <e type="operand">1</e>
           <e type="operand">α.1</e>
           <e type="operand">d.1</e>
@@ -486,7 +479,7 @@
           <e type="function" args="1">Assign</e>
         </input>
         <result action="numeric">
-          <e type="operand">215.6777</e>
+          <e type="operand">114.6676</e>
           <e type="operand" style="unit">kg</e>
           <e type="operand" style="unit">m</e>
           <e type="operator" args="2">*</e>
@@ -495,10 +488,10 @@
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">/</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">366.3241</e>
+          <e type="operand">367.1793</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">366.2769</e>
+          <e type="operand">367.1542</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
           <e type="operand">3</e>
@@ -518,7 +511,7 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">215.6777</e>
+          <e type="operand">114.6676</e>
         </result>
       </math>
     </region>
@@ -531,7 +524,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">93.1741</e>
+          <e type="operand">94.0293</e>
         </result>
       </math>
     </region>
@@ -544,7 +537,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">93.1269</e>
+          <e type="operand">94.0042</e>
         </result>
       </math>
     </region>
@@ -675,7 +668,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">90.6136</e>
+          <e type="operand">93.5637</e>
         </result>
       </math>
     </region>
@@ -691,7 +684,7 @@
         <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
         <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
         <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
-        <yaxes ymin="90" ymax="96" ytick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="93.5" ymax="95.5" ytick="0.2" visible="True" decimalplaces="3" numberformat="General" />
         <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
         <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
         <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="t, C" y2label="y2" />
@@ -740,7 +733,7 @@
           <e type="operand" style="unit">kW</e>
         </contract>
         <result action="numeric">
-          <e type="operand">420.5716</e>
+          <e type="operand">223.6018</e>
         </result>
       </math>
     </region>
@@ -749,7 +742,7 @@
         <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
         <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
         <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
-        <yaxes ymin="0" ymax="500" ytick="50" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="250" ytick="25" visible="True" decimalplaces="3" numberformat="General" />
         <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
         <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
         <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="Q, кВт" y2label="y2" />
@@ -793,7 +786,7 @@
         </content>
       </text>
     </region>
-    <region left="0" top="4338" width="711" height="173" color="#000000" fontSize="9">
+    <region left="0" top="4338" width="704" height="173" color="#000000" fontSize="9">
       <math>
         <input>
           <e type="operand">q.x</e>
@@ -882,7 +875,7 @@
           <e type="function" args="1">Assign</e>
         </input>
         <result action="numeric">
-          <e type="operand">1638.3825</e>
+          <e type="operand">474.4307</e>
           <e type="operand" style="unit">kg</e>
           <e type="operand" style="unit">m</e>
           <e type="operator" args="2">*</e>
@@ -891,10 +884,10 @@
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">/</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">354.28</e>
+          <e type="operand">364.1336</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">353.9214</e>
+          <e type="operand">364.0298</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
           <e type="operand">3</e>
@@ -903,7 +896,7 @@
         </result>
       </math>
     </region>
-    <region left="0" top="4527" width="163" height="47" color="#000000" fontSize="12">
+    <region left="0" top="4527" width="154" height="47" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">q.x</e>
@@ -914,11 +907,11 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">1638.3825</e>
+          <e type="operand">474.4307</e>
         </result>
       </math>
     </region>
-    <region left="0" top="4590" width="159" height="34" color="#000000" fontSize="12">
+    <region left="0" top="4590" width="178" height="34" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">t.внутри</e>
@@ -927,7 +920,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">81.13</e>
+          <e type="operand">90.9836</e>
         </result>
       </math>
     </region>
@@ -940,7 +933,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">80.7714</e>
+          <e type="operand">90.8798</e>
         </result>
       </math>
     </region>
@@ -1071,7 +1064,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">62.9914</e>
+          <e type="operand">84.5734</e>
         </result>
       </math>
     </region>
@@ -1126,7 +1119,7 @@
         </input>
       </math>
     </region>
-    <region left="0" top="5967" width="227" height="34" color="#000000" fontSize="12">
+    <region left="0" top="5967" width="218" height="34" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">L</e>
@@ -1136,7 +1129,7 @@
           <e type="operand" style="unit">kW</e>
         </contract>
         <result action="numeric">
-          <e type="operand">3194.8458</e>
+          <e type="operand">925.1398</e>
         </result>
       </math>
     </region>
@@ -1145,7 +1138,7 @@
         <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
         <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
         <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
-        <yaxes ymin="0" ymax="3300" ytick="500" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="950" ytick="150" visible="True" decimalplaces="3" numberformat="General" />
         <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
         <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
         <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="Q, кВт" y2label="y2" />
@@ -1189,7 +1182,7 @@
         </content>
       </text>
     </region>
-    <region left="0" top="6561" width="583" height="173" color="#000000" fontSize="9">
+    <region left="0" top="6561" width="576" height="173" color="#000000" fontSize="9">
       <math>
         <input>
           <e type="operand">q.x</e>
@@ -1267,7 +1260,7 @@
           <e type="function" args="1">Assign</e>
         </input>
         <result action="numeric">
-          <e type="operand">1395.4936</e>
+          <e type="operand">404.0967</e>
           <e type="operand" style="unit">kg</e>
           <e type="operand" style="unit">m</e>
           <e type="operator" args="2">*</e>
@@ -1276,10 +1269,10 @@
           <e type="operator" args="2">^</e>
           <e type="operator" args="2">/</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">356.3362</e>
+          <e type="operand">364.729</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
-          <e type="operand">356.0308</e>
+          <e type="operand">364.6406</e>
           <e type="operand" style="unit">K</e>
           <e type="operator" args="2">*</e>
           <e type="operand">3</e>
@@ -1288,7 +1281,7 @@
         </result>
       </math>
     </region>
-    <region left="0" top="6759" width="163" height="47" color="#000000" fontSize="12">
+    <region left="0" top="6759" width="154" height="47" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">q.x</e>
@@ -1299,11 +1292,11 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">1395.4936</e>
+          <e type="operand">404.0967</e>
         </result>
       </math>
     </region>
-    <region left="0" top="6813" width="178" height="34" color="#000000" fontSize="12">
+    <region left="0" top="6813" width="169" height="34" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">t.внутри</e>
@@ -1312,7 +1305,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">83.1862</e>
+          <e type="operand">91.579</e>
         </result>
       </math>
     </region>
@@ -1325,7 +1318,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">82.8808</e>
+          <e type="operand">91.4906</e>
         </result>
       </math>
     </region>
@@ -1445,7 +1438,7 @@
           <e type="operand" style="unit">°C</e>
         </contract>
         <result action="numeric">
-          <e type="operand">67.5501</e>
+          <e type="operand">86.0505</e>
         </result>
       </math>
     </region>
@@ -1481,10 +1474,10 @@
         </input>
       </xyplot>
     </region>
-    <region left="0" top="8010" width="658" height="26" color="#000000" fontSize="12" isBreakable="false">
+    <region left="0" top="8010" width="655" height="26" color="#000000" fontSize="12" isBreakable="false">
       <text lang="rus" width="655" fontFamily="Arial" fontSize="12">
         <content>
-          <p>Построим график тепловых потерь трубопровода покрытого бетоном по длине трубы:</p>
+          <p>Построим график тепловых потерь трубопровода без изоляции:</p>
         </content>
       </text>
     </region>
@@ -1500,7 +1493,7 @@
         </input>
       </math>
     </region>
-    <region left="0" top="8109" width="227" height="34" color="#000000" fontSize="12">
+    <region left="0" top="8109" width="218" height="34" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">L</e>
@@ -1510,7 +1503,7 @@
           <e type="operand" style="unit">kW</e>
         </contract>
         <result action="numeric">
-          <e type="operand">2721.2126</e>
+          <e type="operand">787.9886</e>
         </result>
       </math>
     </region>
@@ -1519,7 +1512,7 @@
         <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
         <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
         <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
-        <yaxes ymin="0" ymax="3300" ytick="500" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="800" ytick="100" visible="True" decimalplaces="3" numberformat="General" />
         <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
         <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
         <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="Q, кВт" y2label="y2" />
@@ -1534,6 +1527,106 @@
           <e type="function" args="1">q.сталь</e>
           <e type="operand">1000</e>
           <e type="operator" args="2">/</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="8577" width="535" height="26" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Arial" fontSize="12">
+        <content>
+          <p>Построим общий график распределения температур по длине трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="8604" width="755" height="627" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="745" height="619" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="84" ymax="96" ytick="1" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="t, C" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="tзонолит" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="tбетон" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="tсталь" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">t.Tзолонит</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">t.Tбетон</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">t.Tсталь</e>
+          <e type="operand">273.15</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="9639" width="455" height="26" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Arial" fontSize="12">
+        <content>
+          <p>Построим общий график тепловых потерь по длине трубы:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="9675" width="733" height="660" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="723" height="652" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="0" xmax="1950" xtick="250" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="0" ymax="950" ytick="150" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="L, м" ylabel="Q, кВт" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="true" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthWest" textcolor="Black" />
+        <traces>
+          <trace seriesname="qзонолит" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="qбетон" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="qсталь" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">q.зонолит</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">q.бетон</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">x</e>
+          <e type="operand" style="unit">m</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">q.сталь</e>
+          <e type="operand">1000</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">3</e>
+          <e type="operand">1</e>
+          <e type="function" args="5">sys</e>
         </input>
       </xyplot>
     </region>
