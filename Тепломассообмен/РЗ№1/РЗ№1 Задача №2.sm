@@ -4,7 +4,7 @@
   <settings ppi="120">
     <identity>
       <id>02f0cf82-0f80-4e1c-b057-3b56fcffd5e1</id>
-      <revision>17</revision>
+      <revision>18</revision>
     </identity>
     <metadata lang="rus">
       <author>Михаил Маркин</author>
@@ -601,10 +601,6 @@
           <e type="operand">t.ж2'</e>
           <e type="operand">t.ж3</e>
           <e type="operator" args="2">-</e>
-          <e type="operand">273.15</e>
-          <e type="operand" style="unit">K</e>
-          <e type="operator" args="2">*</e>
-          <e type="operator" args="2">+</e>
           <e type="operand">1</e>
           <e type="operand">α.3</e>
           <e type="operator" args="2">/</e>
@@ -631,7 +627,7 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">0.5804</e>
+          <e type="operand">0.0928</e>
         </result>
       </math>
     </region>
@@ -642,7 +638,7 @@
         </content>
       </text>
     </region>
-    <region left="0" top="2745" width="209" height="34" color="#000000" fontSize="12">
+    <region left="0" top="2745" width="219" height="34" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">Q.пот</e>
@@ -655,7 +651,7 @@
           <e type="operand" style="unit">kW</e>
         </contract>
         <result action="numeric">
-          <e type="operand">2.902</e>
+          <e type="operand">0.4641</e>
         </result>
       </math>
     </region>
@@ -679,7 +675,7 @@
           <e type="operand" style="unit">kW</e>
         </contract>
         <result action="numeric">
-          <e type="operand">0.9979</e>
+          <e type="operand">3.4358</e>
         </result>
       </math>
     </region>
@@ -690,17 +686,13 @@
         </content>
       </text>
     </region>
-    <region left="0" top="2952" width="374" height="81" color="#000000" fontSize="12">
+    <region left="0" top="2952" width="272" height="81" color="#000000" fontSize="12">
       <math>
         <input>
           <e type="operand">q.масло</e>
           <e type="operand">t</e>
           <e type="operand">t.ж2''</e>
           <e type="operator" args="2">-</e>
-          <e type="operand">273.15</e>
-          <e type="operand" style="unit">K</e>
-          <e type="operator" args="2">*</e>
-          <e type="operator" args="2">+</e>
           <e type="operand">1</e>
           <e type="operand">α.1</e>
           <e type="operator" args="2">/</e>
@@ -719,7 +711,7 @@
           <e type="operator" args="2">/</e>
         </contract>
         <result action="numeric">
-          <e type="operand">31.5797</e>
+          <e type="operand">4.7444</e>
         </result>
       </math>
     </region>
@@ -740,7 +732,7 @@
           <e type="operator" args="2">:</e>
         </input>
         <result action="numeric">
-          <e type="operand">0.0316</e>
+          <e type="operand">0.7242</e>
           <e type="operand" style="unit">m</e>
           <e type="operand">2</e>
           <e type="operator" args="2">^</e>
