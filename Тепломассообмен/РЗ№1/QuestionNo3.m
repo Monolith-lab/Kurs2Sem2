@@ -287,32 +287,31 @@ for t_idx = 1:num_T_steps_calc
     current_t_minutes = t_minutes_for_calc(t_idx);   % Текущее время в минутах.
     current_t_seconds = t_seconds_for_calc(t_idx);   % Текущее время в секундах.
 
-    % !!! НАЧАЛО ИСПРАВЛЕНИЯ для t=0 !!!
-    if current_t_seconds == 0
-        % В момент времени t=0 вся заготовка имеет начальную температуру t0
-        Temperature_2D = ones(num_R_grid, num_L_grid) * t0;
-    else
-        % Для t > 0 используем аналитическое решение
-        % Вычисляем числа Фурье (Fo) для текущего времени.
-        current_FoR = a * current_t_seconds / (r0^2); % Для цилиндра (с радиусом r0).
-        current_FoL = a * current_t_seconds / (l0^2); % Для пластины (с половиной длины l0).
+    % =====================================================================
+    % !!! ИЗМЕНЕНИЕ ЗДЕСЬ: Удалено ручное выставление t=0 !!!
+    % Теперь температура для t=0 будет также рассчитываться по ряду Фурье,
+    % где Fo_val = 0, а экспоненциальные члены станут 1.
+    % =====================================================================
+    
+    % Вычисляем числа Фурье (Fo) для текущего времени.
+    current_FoR = a * current_t_seconds / (r0^2); % Для цилиндра (с радиусом r0).
+    current_FoL = a * current_t_seconds / (l0^2); % Для пластины (с половиной длины l0).
 
-        % Вычисляем безразмерные температуры Тета (Theta).
-        theta_slab_at_time_t = calculate_theta_slab(BiL, current_FoL, L_grid_points, slab_roots_res, epsilon);
-        theta_cyl_at_time_t = calculate_theta_cylinder(BiR, current_FoR, R_grid_points, cyl_roots_res, epsilon);
+    % Вычисляем безразмерные температуры Тета (Theta).
+    theta_slab_at_time_t = calculate_theta_slab(BiL, current_FoL, L_grid_points, slab_roots_res, epsilon);
+    theta_cyl_at_time_t = calculate_theta_cylinder(BiR, current_FoR, R_grid_points, cyl_roots_res, epsilon);
 
-        % Поскольку цилиндр охлаждается со всех сторон, его безразмерная температура
-        % является произведением безразмерных температур "бесконечной пластины" (для торцов)
-        % и "бесконечного цилиндра" (для боковой поверхности). Это принцип суперпозиции.
-        teta_itog_2D = theta_cyl_at_time_t * theta_slab_at_time_t'; 
+    % Поскольку цилиндр охлаждается со всех сторон, его безразмерная температура
+    % является произведением безразмерных температур "бесконечной пластины" (для торцов)
+    % и "бесконечного цилиндра" (для боковой поверхности). Это принцип суперпозиции.
+    teta_itog_2D = theta_cyl_at_time_t * theta_slab_at_time_t'; 
 
-        % Переводим безразмерную температуру обратно в градусы Цельсия.
-        if abs(t0 - tf) < epsilon % Если начальная температура = температуре среды, температура не меняется.
-            Temperature_2D = ones(size(teta_itog_2D)) * tf; 
-        else % Общая формула для перевода безразмерной температуры в абсолютную.
-            Temperature_2D = teta_itog_2D * (t0 - tf) + tf;
-        end
-    end % !!! КОНЕЦ ИСПРАВЛЕНИЯ для t=0 !!!
+    % Переводим безразмерную температуру обратно в градусы Цельсия.
+    if abs(t0 - tf) < epsilon % Если начальная температура = температуре среды, температура не меняется.
+        Temperature_2D = ones(size(teta_itog_2D)) * tf; 
+    else % Общая формула для перевода безразмерной температуры в абсолютную.
+        Temperature_2D = teta_itog_2D * (t0 - tf) + tf;
+    end
     
     Temperature_3D_matrix_calc(:,:,t_idx) = Temperature_2D; % Сохраняем температуру в матрицу.
 
@@ -328,31 +327,24 @@ for t_idx = 1:num_T_steps_plots
     current_t_minutes = t_minutes_for_plots_and_regular_regime(t_idx);
     current_t_seconds = t_seconds_for_plots_and_regular_regime(t_idx);
 
-    % !!! НАЧАЛО ИСПРАВЛЕНИЯ для t=0 !!!
-    if current_t_seconds == 0
-        % В момент времени t=0 вся заготовка имеет начальную температуру t0
-        Temperature_2D = ones(num_R_grid, num_L_grid) * t0;
-        % Для сбора данных в Excel и корректного Fo/Theta для t=0
-        theta_slab_at_time_t = ones(size(L_grid_points)) * 1.0; % Безразмерная температура = 1.0 при t=0
-        theta_cyl_at_time_t = ones(size(R_grid_points)) * 1.0; % Безразмерная температура = 1.0 при t=0
-        current_FoL = 0; % Число Фурье равно 0 при t=0
-        current_FoR = 0; % Число Фурье равно 0 при t=0
+    % =====================================================================
+    % !!! ИЗМЕНЕНИЕ ЗДЕСЬ: Удалено ручное выставление t=0 !!!
+    % Теперь температура для t=0 будет также рассчитываться по ряду Фурье,
+    % где Fo_val = 0, а экспоненциальные члены станут 1.
+    % =====================================================================
+    current_FoR = a * current_t_seconds / (r0^2);
+    current_FoL = a * current_t_seconds / (l0^2);
+    
+    theta_slab_at_time_t = calculate_theta_slab(BiL, current_FoL, L_grid_points, slab_roots_res, epsilon);
+    theta_cyl_at_time_t = calculate_theta_cylinder(BiR, current_FoR, R_grid_points, cyl_roots_res, epsilon);
+
+    teta_itog_2D = theta_cyl_at_time_t * theta_slab_at_time_t'; 
+
+    if abs(t0 - tf) < epsilon 
+        Temperature_2D = ones(size(teta_itog_2D)) * tf; 
     else
-        % Для t > 0 используем аналитическое решение
-        current_FoR = a * current_t_seconds / (r0^2);
-        current_FoL = a * current_t_seconds / (l0^2);
-        
-        theta_slab_at_time_t = calculate_theta_slab(BiL, current_FoL, L_grid_points, slab_roots_res, epsilon);
-        theta_cyl_at_time_t = calculate_theta_cylinder(BiR, current_FoR, R_grid_points, cyl_roots_res, epsilon);
-
-        teta_itog_2D = theta_cyl_at_time_t * theta_slab_at_time_t'; 
-
-        if abs(t0 - tf) < epsilon 
-            Temperature_2D = ones(size(teta_itog_2D)) * tf; 
-        else
-            Temperature_2D = teta_itog_2D * (t0 - tf) + tf;
-        end
-    end % !!! КОНЕЦ ИСПРАВЛЕНИЯ для t=0 !!!
+        Temperature_2D = teta_itog_2D * (t0 - tf) + tf;
+    end
     
     Temperature_3D_matrix_plots(:,:,t_idx) = Temperature_2D; % Сохраняем температуру в матрицу для графиков.
 
@@ -1230,10 +1222,10 @@ function theta_sums = calculate_theta_slab(BiL_val, FoL_val, L_arr, slab_roots, 
                 continue; 
             end
 
-            % Вычисляем коэффициент ряда (An) для пластины.
-            % Это "вес" каждого члена в сумме.
-            term_coeff_numerator = 2*BiL_val*sin(r); % Числитель коэффициента.
-            term_coeff_denominator = r*(r^2 + BiL_val^2 + BiL_val); % Знаменатель.
+            % ИСПРАВЛЕНИЕ: Используем стандартную форму коэффициента A_n для пластины
+            % A_n = (2 * sin(lambda_n)) / (lambda_n + sin(lambda_n) * cos(lambda_n))
+            term_coeff_numerator = 2 * sin(r); 
+            term_coeff_denominator = r + sin(r) * cos(r); 
             term_coeff = 0;
 
             if abs(term_coeff_denominator) > ep % Если знаменатель не ноль, вычисляем коэффициент.
@@ -1286,8 +1278,9 @@ function theta_sums = calculate_theta_cylinder(BiR_val, FoR_val, R_arr, cyl_root
             J0_r = besselj(0,r_val); % Вычисляем функцию Бесселя J0(x) в корне r_val.
             J1_r = besselj(1,r_val); % Вычисляем функцию Бесселя J1(x) в корне r_val.
 
-            % Вычисляем коэффициент ряда (Cn) для цилиндра.
-            term_coeff_numerator = 2*BiR_val*J1_r; 
+            % ИСПРАВЛЕНИЕ: Используем стандартную форму коэффициента C_n для цилиндра
+            % C_n = (2 * J1(lambda_n)) / (lambda_n * (J0^2(lambda_n) + J1^2(lambda_n)))
+            term_coeff_numerator = 2 * J1_r; 
             term_coeff_denominator = r_val * (J0_r^2 + J1_r^2); % Знаменатель коэффициента.
             term_coeff = 0;
 
@@ -1333,10 +1326,18 @@ function theta_avg = calculate_theta_avg_slab(BiL_val, FoL_val, slab_roots, ep)
             continue; 
         end
         
-        % Коэффициент ряда для средней безразмерной температуры пластины.
-        % Этот коэффициент отличается от коэффициента для температуры в точке.
-        An_avg_coeff = (2 * BiL_val) / (r^2 + BiL_val^2 + BiL_val);
+        % ИСПРАВЛЕНИЕ: Используем корректный коэффициент A_n для расчета средней температуры
+        % A_n_avg = A_n * (sin(lambda_n) / lambda_n)
+        % где A_n = (2 * sin(lambda_n)) / (lambda_n + sin(lambda_n) * cos(lambda_n))
+        An_for_average_num = 2 * sin(r);
+        An_for_average_den = r + sin(r) * cos(r);
         
+        if abs(An_for_average_den) < ep
+            An_avg_coeff = 0; % Избегаем деления на ноль
+        else
+            An_avg_coeff = An_for_average_num / An_for_average_den;
+        end
+
         % Член ряда для средней температуры.
         if abs(r) > ep
             term_avg = An_avg_coeff * (sin(r)/r) * exp(-r^2 * FoL_val);
@@ -1369,10 +1370,20 @@ function theta_avg = calculate_theta_avg_cylinder(BiR_val, FoR_val, cyl_roots, e
             continue;
         end
 
-        % Коэффициент ряда для средней безразмерной температуры цилиндра.
-        % Эта формула из стандартных источников (например, Cengel, Incropera)
-        % для объемно-средней температуры цилиндра.
-        term_avg_coeff = (2 * BiR_val^2 * besselj(1, r_val)^2) / (r_val^2 * (BiR_val^2 + r_val^2));
+        % ИСПРАВЛЕНИЕ: Используем стандартную форму коэффициента для средней температуры цилиндра
+        % C_n_avg = (4 * Bi^2) / (lambda_n^2 * (lambda_n^2 + Bi^2))
+        term_avg_coeff_numerator = 4 * BiR_val^2;
+        term_avg_coeff_denominator = r_val^2 * (r_val^2 + BiR_val^2);
+
+        term_avg_coeff = 0;
+        if abs(term_avg_coeff_denominator) > ep
+            term_avg_coeff = term_avg_coeff_numerator / term_avg_coeff_denominator;
+        elseif abs(term_avg_coeff_numerator) < ep
+            term_avg_coeff = 0;
+        else
+            warning('Цилиндр (средн. темп.): Потенциальное Inf/NaN для коэффициента корня r=%f (числитель=%.2e, знаменатель=%.2e), BiR=%f. Коэффициент установлен в 0.', r_val, term_avg_coeff_numerator, term_avg_coeff_denominator, BiR_val);
+            term_avg_coeff = 0;
+        end
         
         % Член ряда для средней температуры.
         term_avg = term_avg_coeff * exp(-r_val^2 * FoR_val);
