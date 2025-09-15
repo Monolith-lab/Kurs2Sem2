@@ -7,7 +7,7 @@
       <revision>19</revision>
     </identity>
     <metadata lang="rus">
-      <author>Рылский Александр</author>
+      <author>Рыльский Александр</author>
     </metadata>
     <calculation>
       <precision>4</precision>
@@ -800,3 +800,4 @@
   </regions>
 
 </worksheet>
+
