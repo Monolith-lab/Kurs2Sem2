@@ -7,7 +7,7 @@
       <revision>19</revision>
     </identity>
     <metadata lang="rus">
-      <author>Михаил Маркин</author>
+      <author>Рылский Александр</author>
     </metadata>
     <calculation>
       <precision>4</precision>
@@ -798,4 +798,5 @@
       </xyplot>
     </region>
   </regions>
+
 </worksheet>
