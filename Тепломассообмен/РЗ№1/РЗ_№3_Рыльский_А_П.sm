@@ -1,0 +1,2612 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?application progid="SMath Solver" version="1.3.0.9126"?>
+<worksheet xmlns="http://smath.info/schemas/worksheet/1.0">
+  <settings ppi="120">
+    <identity>
+      <id>5e57c5eb-4d9d-499d-a96e-9b66161d1a1c</id>
+      <revision>24</revision>
+    </identity>
+    <metadata lang="rus">
+      <author>Александр</author>
+    </metadata>
+    <calculation>
+      <precision>4</precision>
+      <exponentialThreshold>5</exponentialThreshold>
+      <trailingZeros>false</trailingZeros>
+      <significantDigitsMode>true</significantDigitsMode>
+      <mixedNumbers>false</mixedNumbers>
+      <roundingMode>0</roundingMode>
+      <approximateEqualAccuracy>3</approximateEqualAccuracy>
+      <fractions>decimal</fractions>
+    </calculation>
+    <pageModel active="true" viewMode="0" printGrid="false" printAreas="true" simpleEqualsOnly="false" printBackgroundImages="true" hideElementsHighlightings="true">
+      <paper id="9" orientation="Portrait" width="827" height="1169" />
+      <margins left="39" right="39" top="49" bottom="49" />
+      <header alignment="Center" color="#a9a9a9">&amp;[DATE] &amp;[TIME] - &amp;[FILENAME]</header>
+      <footer alignment="Center" color="#a9a9a9">&amp;[PAGENUM] / &amp;[COUNT]</footer>
+      <backgrounds />
+    </pageModel>
+    <dependencies>
+      <assembly name="SMath Core" version="1.73.9126.0" guid="a37cba83-b69c-4c71-9992-55ff666763bd" />
+      <assembly name="MathRegion" version="1.73.9126.0" guid="02f1ab51-215b-466e-a74d-5d8b1cf85e8d" />
+      <assembly name="PictureRegion" version="1.73.9126.0" guid="06b5df04-393e-4be7-9107-305196fcb861" />
+      <assembly name="SpecialFunctions" version="1.73.9126.0" guid="2814e667-4e12-48b1-8d51-194e480eabc5" />
+      <assembly name="MaximaPlugin" version="1.98.8797.27896" guid="44011c1e-5d0d-4533-8e68-e32b5badce41" />
+      <assembly name="TextRegion" version="1.73.9126.0" guid="485d28c5-349a-48b6-93be-12a35a1c1e39" />
+      <assembly name="AreaRegion" version="1.73.9126.0" guid="4974b228-4974-44cf-8274-bf2936b4a766" />
+      <assembly name="Cephes Mathematical Library" version="1.0.8034.38340" guid="b50f73cb-c149-47b1-952a-f95b0c32d6d4" />
+      <assembly name="X-Y Plot Region (JXCharts)" version="0.3.9106.25707" guid="c12231ec-4873-43c1-a7d0-a167ebd17066" />
+    </dependencies>
+  </settings>
+  <regions type="content">
+    <region left="0" top="0" width="764" height="331" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Задача 3.<br />Цилиндрическую заготовку диаметром d = 230 мм и длиной L = 290 мм, с начальной <br />температурой t0 = 450 оС поместили в охладительный бассейн с температурой жидкости tж = 19 оС, в котором она начала охлаждаться при постоянном коэффициенте теплоотдачи α = 110 Вт/(м2 К). Свойства материала заготовки: марка - Сталь 1Cr, плотность - 7896 кг/м3, удельная теплоёмкость - 460 <br />Дж/(кг К), теплопроводность - 41 Вт/(м К). <br />1. Рассчитать температурное поле в цилиндре как функцию радиуса r и линейной координаты х в момент времени τ1 = 4 мин от начала охлаждения, результаты вычислений свести в таблицу, построить графики t(х, 0, τ1), t(х, r0, τ1), t (0, r, τ1), t(L/2, r, τ1). <br />2. Имитируя эксперимент, рассчитать температуру в центре цилиндра как функцию времени, затем для стадии регулярного режима охлаждения вычислить "экспериментальный" темп охлаждения цилиндра и температуропроводность материала заготовки. <br />3. Вычислить количество теплоты, отданной цилиндром за время охлаждения от его начала, до момента τ1. </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="342" width="426" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Заданные параметры (задаються пользователем)</p>
+        </content>
+      </text>
+    </region>
+    <region left="414" top="378" width="130" height="61" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">α</e>
+          <e type="operand">110</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="387" width="97" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">d</e>
+          <e type="operand">230</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="99" top="387" width="97" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">L</e>
+          <e type="operand">290</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="207" top="387" width="104" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.0</e>
+          <e type="operand">450</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="315" top="387" width="95" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.ж</e>
+          <e type="operand">19</e>
+          <e type="operand" style="unit">°C</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="432" width="145" height="61" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">ρ.ст</e>
+          <e type="operand">7896</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">3</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="153" top="432" width="116" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">c</e>
+          <e type="operand">460</e>
+          <e type="operand" style="unit">J</e>
+          <e type="operand" style="unit">kg</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="270" top="432" width="108" height="49" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">λ</e>
+          <e type="operand">41</e>
+          <e type="operand" style="unit">W</e>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="486" top="432" width="67" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r.0</e>
+          <e type="operand">d</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="387" top="441" width="95" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">τ.1</e>
+          <e type="operand">4</e>
+          <e type="operand" style="unit">min</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="486" width="89" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Решение </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="504" width="764" height="84" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>1. Рассчитать температурное поле в цилиндре как функцию радиуса r и линейной координаты х в момент времени τ1 = 4 мин от начала охлаждения, результаты вычислений свести в таблицу, построить графики t(х, 0, τ1), t(х, r0, τ1), t (0, r, τ1), t(L/2, r, τ1). </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="603" width="327" height="27" color="#000000" fontSize="12">
+      <text lang="rus" width="327" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Найдем значения Bi и Fo</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="630" width="202" height="54" color="#000000" fontSize="12">
+      <math decimalPlaces="6">
+        <input>
+          <e type="operand">Bi.r</e>
+          <e type="operand">α</e>
+          <e type="operand">r.0</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">λ</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.308537</e>
+        </result>
+      </math>
+    </region>
+    <region left="288" top="639" width="225" height="93" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Fo.r</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">r.0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.2048</e>
+        </result>
+      </math>
+    </region>
+    <region left="513" top="639" width="225" height="109" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Fo.l</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.1289</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="675" width="199" height="67" color="#000000" fontSize="12">
+      <math decimalPlaces="6">
+        <input>
+          <e type="operand">Bi.l</e>
+          <e type="operand">α</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">λ</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.389024</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="747" width="492" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Определим значения μ ,найдем значения для 6 корней:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="783" width="258" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для этого решим уравнения:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="819" width="239" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для осевого направления:</p>
+        </content>
+      </text>
+    </region>
+    <region left="234" top="819" width="142" height="36" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">μ.l</e>
+          <e type="operand">μ.l</e>
+          <e type="function" args="1">tan</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Bi.l</e>
+          <e type="operator" args="2">≡</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="864" width="387" height="38" color="#000000" fontSize="12">
+      <math optimize="2">
+        <input>
+          <e type="operand">Data_μ.l</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">μ.l</e>
+          <e type="function" args="1">tan</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Bi.l</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">0</e>
+          <e type="operand">50</e>
+          <e type="function" args="4">solve</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="909" width="276" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для радиального направления:</p>
+        </content>
+      </text>
+    </region>
+    <region left="270" top="909" width="267" height="38" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">μ.r</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Bi.r</e>
+          <e type="operand">0</e>
+          <e type="operand">μ.r</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="963" width="512" height="40" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Data_μ.r</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">Bi.r</e>
+          <e type="operand">0</e>
+          <e type="operand">μ.r</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">0</e>
+          <e type="operand">50</e>
+          <e type="function" args="4">solve</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1125" width="936" height="47" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,15,1">
+        <input>
+          <e type="operand">Data_μ.l</e>
+          <e type="function" args="1">transpose</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.586</e>
+          <e type="operand">3.26</e>
+          <e type="operand">3.26</e>
+          <e type="operand">6.341</e>
+          <e type="operand">6.344</e>
+          <e type="operand">9.466</e>
+          <e type="operand">9.466</e>
+          <e type="operand">11.19</e>
+          <e type="operand">12.6</e>
+          <e type="operand">15.73</e>
+          <e type="operand">15.73</e>
+          <e type="operand">18.87</e>
+          <e type="operand">18.87</e>
+          <e type="operand">22.01</e>
+          <e type="operand">22.01</e>
+          <e type="operand">1</e>
+          <e type="operand">15</e>
+          <e type="function" args="17">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1179" width="579" height="47" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Data_μ.r</e>
+          <e type="function" args="1">transpose</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.7562</e>
+          <e type="operand">3.911</e>
+          <e type="operand">7.059</e>
+          <e type="operand">10.2</e>
+          <e type="operand">13.35</e>
+          <e type="operand">16.49</e>
+          <e type="operand">19.63</e>
+          <e type="operand">22.77</e>
+          <e type="operand">1</e>
+          <e type="operand">8</e>
+          <e type="function" args="10">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="459" top="1242" width="115" height="357" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">μ.l</e>
+          <e type="operand">0.586</e>
+          <e type="operand">3.26</e>
+          <e type="operand">6.342</e>
+          <e type="operand">9.324</e>
+          <e type="operand">11.32</e>
+          <e type="operand">15.73</e>
+          <e type="operand">18.87</e>
+          <e type="operand">22.01</e>
+          <e type="operand">25.15</e>
+          <e type="operand">28.29</e>
+          <e type="operand">31.43</e>
+          <e type="operand">34.57</e>
+          <e type="operand">37.71</e>
+          <e type="operand">40.85</e>
+          <e type="operand">43.99</e>
+          <e type="operand">47.13</e>
+          <e type="operand">16</e>
+          <e type="operand">1</e>
+          <e type="function" args="18">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="585" top="1242" width="125" height="357" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">μ.r</e>
+          <e type="operand">0.7562</e>
+          <e type="operand">3.911</e>
+          <e type="operand">7.059</e>
+          <e type="operand">10.2</e>
+          <e type="operand">13.35</e>
+          <e type="operand">16.49</e>
+          <e type="operand">19.63</e>
+          <e type="operand">22.77</e>
+          <e type="operand">25.92</e>
+          <e type="operand">29.06</e>
+          <e type="operand">32.2</e>
+          <e type="operand">35.34</e>
+          <e type="operand">38.48</e>
+          <e type="operand">41.62</e>
+          <e type="operand">44.77</e>
+          <e type="operand">47.91</e>
+          <e type="operand">16</e>
+          <e type="operand">1</e>
+          <e type="function" args="18">mat</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1413" width="136" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Таким образом</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1593" width="473" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Найдем для примера температуру в центре заготовки</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="1620" width="75" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">X</e>
+          <e type="operand">x</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1692" width="53" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="1719" width="718" height="89" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">X</e>
+          <e type="function" args="1">Θ.l</e>
+          <e type="operand">2</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">X</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="bracket">(</e>
+          <e type="operand">Fo.l</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">16</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9932</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1827" width="679" height="104" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">R</e>
+          <e type="function" args="1">Θ.r</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Fo.r</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">16</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9501</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1917" width="134" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">X</e>
+          <e type="function" args="1">Θ.l</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9932</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1944" width="225" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ</e>
+          <e type="operand">R</e>
+          <e type="function" args="1">Θ.r</e>
+          <e type="operand">X</e>
+          <e type="function" args="1">Θ.l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.9437</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="1971" width="364" height="65" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ</e>
+          <e type="operand">t.τ</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">t.0</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">t.τ</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2052" width="121" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.τ</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="2088" width="737" height="35" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>То есть температура в центре заготовки через 4 минут будет равна \[REGION[0974ebfff4cb4389922c91e999435cb5]]\</p>
+        </content>
+        <regions>
+          <region id="0974ebfff4cb4389922c91e999435cb5" left="611" top="0" width="121" height="34" color="#000000" fontSize="12">
+            <math>
+              <input>
+                <e type="operand">t.τ</e>
+              </input>
+              <contract>
+                <e type="operand" style="unit">°C</e>
+              </contract>
+              <result action="numeric">
+                <e type="operand">425.7</e>
+              </result>
+            </math>
+          </region>
+        </regions>
+      </text>
+    </region>
+    <region left="0" top="2151" width="295" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Построим графики зависимостей:</p>
+        </content>
+      </text>
+    </region>
+    <region top="2178" color="#000000">
+      <area collapsed="false" protected="true">
+        <title lang="rus">
+          <content>
+            <p>Функция для графика t(x,0,τ1)</p>
+          </content>
+        </title>
+      </area><![CDATA[UEsDBBQAAAAAADtxu1rsTMIlhxAAAIcQAAAEAAAAMDE2Me+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04IiBzdGFuZGFsb25lPSJ5ZXMiPz48cmVnaW9ucyB4bWxucz0iaHR0cDovL3NtYXRoLmluZm8vc2NoZW1hcy93b3Jrc2hlZXQvMS4wIj48cmVnaW9uIGxlZnQ9IjAiIHRvcD0iMjIxNCIgd2lkdGg9Ijg3MSIgaGVpZ2h0PSIzMzkiIGNvbG9yPSIjMDAwMDAwIiBmb250U2l6ZT0iMTIiPjxtYXRoPjxpbnB1dD48ZSB0eXBlPSJvcGVyYW5kIj54PC9lPjxlIHR5cGU9Im9wZXJhbmQiPnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+z4QuMTwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMyI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhbmQiPng8L2U+PGUgdHlwZT0ib3BlcmFuZCI+TDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4vPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+WDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+zpgubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5Gby5sPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjEiPi08L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmV4cDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+NjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iNCI+c3VtPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj46PC9lPjxlIHR5cGU9Im9wZXJhbmQiPlI8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPkp2PC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+MTwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LzwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+cjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+SnY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+Rm8ucjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIxIj4tPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5leHA8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjY8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjQiPnN1bTwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5SPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj7OmC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPlg8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLmw8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj50LjA8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dC7QtjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LTwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPnQu0LY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj42PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjgiPmxpbmU8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PC9pbnB1dD48L21hdGg+PC9yZWdpb24+PHJlZ2lvbiB0b3A9IjI2MjgiIGNvbG9yPSIjMDAwMDAwIj48YXJlYSB0ZXJtaW5hdG9yPSJ0cnVlIiAvPjwvcmVnaW9uPjwvcmVnaW9ucz5QSwECFwsUAAAAAAA7cbta7EzCJYcQAACHEAAABAAAAAAAAAAAAAAAAIEAAAAAMDE2MVBLBQYAAAAAAQABADIAAACpEAAAAAA=]]></region>
+    <region left="0" top="2655" width="323" height="31" color="#000000" fontSize="12">
+      <math optimize="2">
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">145</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">145</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operand">144.4</e>
+          <e type="operator" args="1">-</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="2691" width="702" height="472" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="692" height="464" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-0.1470564" xmax="0.1517062" xtick="0.04" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="597.7644" ymax="762.4696" ytick="40" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x" ylabel="T, K" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Fuchsia" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 140, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="SaddleBrown" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 139, 69, 19" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <description active="false" position="Top" lang="eng">
+          <content></content>
+        </description>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(-L/2,0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(L/2,0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">7</e>
+          <e type="operand">1</e>
+          <e type="function" args="9">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="3177" width="352" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Значение точек отмеченных на графике</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="3204" width="331" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\\002D\L\002C\0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">371.2</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3249" width="341" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="3303" width="341" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\L\002C\0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">371.4</e>
+        </result>
+      </math>
+    </region>
+    <region top="3591" color="#000000">
+      <area collapsed="true" protected="true">
+        <title lang="rus">
+          <content>
+            <p>Функция для графика t(x,r0,τ1)</p>
+          </content>
+        </title>
+      </area><![CDATA[UEsDBBQAAAAAADtxu1oSfaVmhxAAAIcQAAAEAAAAMDE2Me+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04IiBzdGFuZGFsb25lPSJ5ZXMiPz48cmVnaW9ucyB4bWxucz0iaHR0cDovL3NtYXRoLmluZm8vc2NoZW1hcy93b3Jrc2hlZXQvMS4wIj48cmVnaW9uIGxlZnQ9IjAiIHRvcD0iMzYyNyIgd2lkdGg9Ijg3MSIgaGVpZ2h0PSIzMzkiIGNvbG9yPSIjMDAwMDAwIiBmb250U2l6ZT0iMTIiPjxtYXRoPjxpbnB1dD48ZSB0eXBlPSJvcGVyYW5kIj54PC9lPjxlIHR5cGU9Im9wZXJhbmQiPnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+z4QuMTwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMyI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhbmQiPng8L2U+PGUgdHlwZT0ib3BlcmFuZCI+TDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4vPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+WDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+zpgubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5Gby5sPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjEiPi08L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmV4cDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+NjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iNCI+c3VtPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj46PC9lPjxlIHR5cGU9Im9wZXJhbmQiPlI8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPkp2PC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+MTwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LzwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+cjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+SnY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+Rm8ucjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIxIj4tPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5leHA8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjY8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjQiPnN1bTwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5SPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj7OmC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPlg8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLmw8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj50LjA8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dC7QtjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LTwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPnQu0LY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj42PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjgiPmxpbmU8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PC9pbnB1dD48L21hdGg+PC9yZWdpb24+PHJlZ2lvbiB0b3A9IjM5OTYiIGNvbG9yPSIjMDAwMDAwIj48YXJlYSB0ZXJtaW5hdG9yPSJ0cnVlIiAvPjwvcmVnaW9uPjwvcmVnaW9ucz5QSwECFwsUAAAAAAA7cbtaEn2lZocQAACHEAAABAAAAAAAAAAAAAAAAIEAAAAAMDE2MVBLBQYAAAAAAQABADIAAACpEAAAAAA=]]></region>
+    <region left="0" top="4023" width="323" height="31" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">145</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">145</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operand">144.4</e>
+          <e type="operator" args="1">-</e>
+          <e type="bracket">(</e>
+          <e type="operand" style="unit">mm</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="4059" width="702" height="472" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="692" height="464" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-0.1573359" xmax="0.1784943" xtick="0.04" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="560.4227" ymax="791.8478" ytick="40" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x" ylabel="T, K" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Fuchsia" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 140, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="SaddleBrown" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 139, 69, 19" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <description active="false" position="Top" lang="eng">
+          <content></content>
+        </description>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(-L/2,r0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,r0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">x</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(L/2,r0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">7</e>
+          <e type="operand">1</e>
+          <e type="function" args="9">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="4563" width="352" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Значение точек отмеченных на графике</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="4608" width="351" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\\002D\L\002C\r0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">370.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="4671" width="341" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\r0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">242</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="4734" width="360" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\L\002C\r0\002C\τ1\0029\</e>
+          <e type="operand">x</e>
+          <e type="operand">r.0</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">484</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">370.8</e>
+        </result>
+      </math>
+    </region>
+    <region top="5067" color="#000000">
+      <area collapsed="true" protected="true">
+        <title lang="rus">
+          <content>
+            <p>Функция для графика t(0,r,τ1)</p>
+          </content>
+        </title>
+      </area><![CDATA[UEsDBBQAAAAAADtxu1pDJQRhTxQAAE8UAAAEAAAAMDE2Me+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04IiBzdGFuZGFsb25lPSJ5ZXMiPz48cmVnaW9ucyB4bWxucz0iaHR0cDovL3NtYXRoLmluZm8vc2NoZW1hcy93b3Jrc2hlZXQvMS4wIj48cmVnaW9uIGxlZnQ9IjEwODkiIHRvcD0iNTA5NCIgd2lkdGg9IjIzMCIgaGVpZ2h0PSIzNzkiIGNvbG9yPSIjMDAwMDAwIiBmb250U2l6ZT0iMTIiPjxtYXRoIGV2YWx1YXRlPSJmYWxzZSIgZGVjaW1hbFBsYWNlcz0iMTAiIG1hdHJpeE9wdGlvbnM9IjAsMCwxLDE3Ij48aW5wdXQ+PGUgdHlwZT0ib3BlcmFuZCI+MDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5yPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+dmVjdG9yaXplPC9lPjwvaW5wdXQ+PHJlc3VsdCBhY3Rpb249Im51bWVyaWMiPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5OTk3NTwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wLjk5OTk5OTwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wLjk5OTk5Nzc1PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjAuOTk5OTk2PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjAuOTk5OTkzNzU8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5OTE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5ODc3NTwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wLjk5OTk4NDAwMDE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5Nzk3NTAxPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjAuOTk5OTc1MDAwMjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wLjk5OTk2OTc1MDI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5NjQwMDAzPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjAuOTk5OTU3NzUwNDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wLjk5OTk1MTAwMDY8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MC45OTk5NDM3NTA4PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjAuOTk5OTM2MDAxPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE3PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjE5Ij5tYXQ8L2U+PC9yZXN1bHQ+PC9tYXRoPjwvcmVnaW9uPjxyZWdpb24gbGVmdD0iOSIgdG9wPSI1MTAzIiB3aWR0aD0iODcxIiBoZWlnaHQ9IjMzOSIgY29sb3I9IiMwMDAwMDAiIGZvbnRTaXplPSIxMiI+PG1hdGg+PGlucHV0PjxlIHR5cGU9Im9wZXJhbmQiPng8L2U+PGUgdHlwZT0ib3BlcmFuZCI+cjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7PhC4xPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIzIj50PC9lPjxlIHR5cGU9Im9wZXJhbmQiPlg8L2U+PGUgdHlwZT0ib3BlcmFuZCI+eDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5MPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LzwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj7OmC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+c2luPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+c2luPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmNvczwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KzwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LzwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9Im9wZXJhbmQiPlg8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmNvczwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+XjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPkZvLmw8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMSI+LTwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+ZXhwPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0ib3BlcmFuZCI+MTwvZT48ZSB0eXBlPSJvcGVyYW5kIj42PC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSI0Ij5zdW08L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+UjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+zpgucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+SnY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPkp2PC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+XjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPkp2PC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+XjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KzwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4vPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjA8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5yPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+XjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5Gby5yPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjEiPi08L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmV4cDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+NjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iNCI+c3VtPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj46PC9lPjxlIHR5cGU9Im9wZXJhbmQiPs6YPC9lPjxlIHR5cGU9Im9wZXJhbmQiPlI8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+WDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+zpgubDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj50PC9lPjxlIHR5cGU9Im9wZXJhbmQiPs6YPC9lPjxlIHR5cGU9Im9wZXJhbmQiPnQuMDwvZT48ZSB0eXBlPSJvcGVyYW5kIj50LtC2PC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4tPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dC7QtjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KzwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj50PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjY8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MTwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iOCI+bGluZTwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48L2lucHV0PjwvbWF0aD48L3JlZ2lvbj48cmVnaW9uIHRvcD0iNTUxNyIgY29sb3I9IiMwMDAwMDAiPjxhcmVhIHRlcm1pbmF0b3I9InRydWUiIC8+PC9yZWdpb24+PC9yZWdpb25zPlBLAQIXCxQAAAAAADtxu1pDJQRhTxQAAE8UAAAEAAAAAAAAAAAAAAAAgQAAAAAwMTYxUEsFBgAAAAABAAEAMgAAAHEUAAAAAA==]]></region>
+    <region left="0" top="5535" width="276" height="31" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">0.115</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">0.115</e>
+          <e type="bracket">(</e>
+          <e type="operand">0.114</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="3">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="288" top="5535" width="124" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="function" args="1">rows</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">231</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="5571" width="702" height="472" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="692" height="464" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-0.138468" xmax="0.1499145" xtick="0.04" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="697.3521" ymax="700.558" ytick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x" ylabel="T, K" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Fuchsia" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 140, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="SaddleBrown" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 139, 69, 19" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <description active="false" position="Top" lang="eng">
+          <content></content>
+        </description>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">r</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,-r,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,r,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">7</e>
+          <e type="operand">1</e>
+          <e type="function" args="9">sys</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="6048" width="352" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Значение точек отмеченных на графике</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="6075" width="303" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\r\002C\τ1\0029\</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="6129" width="341" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\0\002C\τ1\0029\</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425.7</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="6183" width="331" height="54" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\\002D\r\002C\τ1\0029\</e>
+          <e type="operand">0</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">425</e>
+        </result>
+      </math>
+    </region>
+    <region top="6588" color="#000000">
+      <area collapsed="true" protected="true">
+        <title lang="rus">
+          <content>
+            <p>Функция для графика t(0,r,τ1)</p>
+          </content>
+        </title>
+      </area><![CDATA[UEsDBBQAAAAAADtxu1pFdc9WhxAAAIcQAAAEAAAAMDE2Me+7vzw/eG1sIHZlcnNpb249IjEuMCIgZW5jb2Rpbmc9InV0Zi04IiBzdGFuZGFsb25lPSJ5ZXMiPz48cmVnaW9ucyB4bWxucz0iaHR0cDovL3NtYXRoLmluZm8vc2NoZW1hcy93b3Jrc2hlZXQvMS4wIj48cmVnaW9uIGxlZnQ9IjkiIHRvcD0iNjYyNCIgd2lkdGg9Ijg3MSIgaGVpZ2h0PSIzMzkiIGNvbG9yPSIjMDAwMDAwIiBmb250U2l6ZT0iMTIiPjxtYXRoPjxpbnB1dD48ZSB0eXBlPSJvcGVyYW5kIj54PC9lPjxlIHR5cGU9Im9wZXJhbmQiPnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+z4QuMTwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMyI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhbmQiPng8L2U+PGUgdHlwZT0ib3BlcmFuZCI+TDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4vPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+WDwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMSI+zpgubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj4yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68Lmw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPnNpbjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5sPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPi88L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5YPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5jb3M8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwubDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5Gby5sPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9ImJyYWNrZXQiPig8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjEiPi08L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPmV4cDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0ib3BlcmFuZCI+NjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iNCI+c3VtPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj46PC9lPjxlIHR5cGU9Im9wZXJhbmQiPlI8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPkp2PC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+MDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+MTwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OvC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPm48L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjIiPmVsPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5KdjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0iYnJhY2tldCI+KDwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LzwvZT48ZSB0eXBlPSJvcGVyYW5kIj4wPC9lPjxlIHR5cGU9Im9wZXJhbmQiPs68LnI8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+ZWw8L2U+PGUgdHlwZT0ib3BlcmFuZCI+cjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJmdW5jdGlvbiIgYXJncz0iMiI+SnY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+zrwucjwvZT48ZSB0eXBlPSJvcGVyYW5kIj5uPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIyIj5lbDwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjI8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPl48L2U+PGUgdHlwZT0ib3BlcmFuZCI+Rm8ucjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+KjwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIxIj4tPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj5leHA8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmFuZCI+bjwvZT48ZSB0eXBlPSJvcGVyYW5kIj4xPC9lPjxlIHR5cGU9Im9wZXJhbmQiPjY8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjQiPnN1bTwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+OjwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj5SPC9lPjxlIHR5cGU9ImZ1bmN0aW9uIiBhcmdzPSIxIj7OmC5yPC9lPjxlIHR5cGU9Im9wZXJhbmQiPlg8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjEiPs6YLmw8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPio8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj7OmDwvZT48ZSB0eXBlPSJvcGVyYW5kIj50LjA8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dC7QtjwvZT48ZSB0eXBlPSJvcGVyYXRvciIgYXJncz0iMiI+LTwvZT48ZSB0eXBlPSJicmFja2V0Ij4oPC9lPjxlIHR5cGU9Im9wZXJhdG9yIiBhcmdzPSIyIj4qPC9lPjxlIHR5cGU9Im9wZXJhbmQiPnQu0LY8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPis8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PGUgdHlwZT0ib3BlcmFuZCI+dDwvZT48ZSB0eXBlPSJvcGVyYW5kIj42PC9lPjxlIHR5cGU9Im9wZXJhbmQiPjE8L2U+PGUgdHlwZT0iZnVuY3Rpb24iIGFyZ3M9IjgiPmxpbmU8L2U+PGUgdHlwZT0ib3BlcmF0b3IiIGFyZ3M9IjIiPjo8L2U+PC9pbnB1dD48L21hdGg+PC9yZWdpb24+PHJlZ2lvbiB0b3A9IjcwMDIiIGNvbG9yPSIjMDAwMDAwIj48YXJlYSB0ZXJtaW5hdG9yPSJ0cnVlIiAvPjwvcmVnaW9uPjwvcmVnaW9ucz5QSwECFwsUAAAAAAA7cbtaRXXPVocQAACHEAAABAAAAAAAAAAAAAAAAIEAAAAAMDE2MVBLBQYAAAAAAQABADIAAACpEAAAAAA=]]></region>
+    <region left="0" top="7029" width="276" height="31" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">0.115</e>
+          <e type="operator" args="1">-</e>
+          <e type="operand">0.115</e>
+          <e type="bracket">(</e>
+          <e type="operand">0.114</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="3">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="279" top="7029" width="124" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="function" args="1">rows</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">231</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7065" width="702" height="472" color="#000000" fontSize="12" showInputData="false">
+      <xyplot width="692" height="464" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-0.1767881" xmax="0.1817095" xtick="0.04" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="643.1956" ymax="645.8499" ytick="0.4" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="x" ylabel="T, K" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Green" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 128, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Fuchsia" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="DarkOrange" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 140, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="SaddleBrown" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 139, 69, 19" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <description active="false" position="Top" lang="eng">
+          <content></content>
+        </description>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">r</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand">1</e>
+          <e type="operand">4</e>
+          <e type="function" args="6">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,-r,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,0,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">r</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operand" style="string">t(0,r,τ1)</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">black</e>
+          <e type="operand">1</e>
+          <e type="operand">5</e>
+          <e type="function" args="7">mat</e>
+          <e type="operand">7</e>
+          <e type="operand">1</e>
+          <e type="function" args="9">sys</e>
+          <e type="operand">1</e>
+          <e type="operand">1</e>
+          <e type="function" args="3">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="0" top="7542" width="352" height="27" color="#000000" fontSize="12" isBreakable="false">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Значение точек отмеченных на графике</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7569" width="328" height="67" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\r\002C\τ1\0029\</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">370.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7623" width="347" height="67" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\0\002C\τ1\0029\</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">116</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">371.2</e>
+        </result>
+      </math>
+    </region>
+    <region left="819" top="7623" width="217" height="93" color="#000000" fontSize="12">
+      <math evaluate="false">
+        <input>
+          <e type="operand">Fo.r</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">r.0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.2048</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7686" width="357" height="67" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t\0028\0\002C\\002D\r\002C\τ1\0029\</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">r</e>
+          <e type="operand">τ.1</e>
+          <e type="function" args="3">t</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand">231</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">370.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="810" top="7704" width="217" height="109" color="#000000" fontSize="12">
+      <math evaluate="false">
+        <input>
+          <e type="operand">Fo.l</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ.1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.1289</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="7776" width="764" height="84" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>2. Имитируя эксперимент, рассчитать температуру в центре цилиндра как функцию времени, затем для стадии регулярного режима охлаждения вычислить "экспериментальный" темп охлаждения цилиндра и температуропроводность материала заготовки. </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="7857" width="274" height="31" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">τ</e>
+          <e type="operand">0</e>
+          <e type="operand" style="unit">min</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operand">10</e>
+          <e type="operand" style="unit">min</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operand">0.5</e>
+          <e type="operand" style="unit">min</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="3">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="7938" width="140" height="99" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Fo.r</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">r.0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="171" top="7938" width="140" height="115" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,1,12">
+        <input>
+          <e type="operand">Fo.l</e>
+          <e type="operand">λ</e>
+          <e type="operand">c</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">τ</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="1476" top="8109" width="367" height="109" color="#000000">
+      <picture>
+        <raw format="png" encoding="base64">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</raw>
+      </picture>
+    </region>
+    <region left="369" top="8145" width="142" height="465" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,1,101">
+        <input>
+          <e type="operand">Fo.r</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0</e>
+          <e type="operand">0.02561</e>
+          <e type="operand">0.05121</e>
+          <e type="operand">0.07682</e>
+          <e type="operand">0.1024</e>
+          <e type="operand">0.128</e>
+          <e type="operand">0.1536</e>
+          <e type="operand">0.1792</e>
+          <e type="operand">0.2048</e>
+          <e type="operand">0.2305</e>
+          <e type="operand">0.2561</e>
+          <e type="operand">0.2817</e>
+          <e type="operand">0.3073</e>
+          <e type="operand">0.3329</e>
+          <e type="operand">0.3585</e>
+          <e type="operand">0.3841</e>
+          <e type="operand">0.4097</e>
+          <e type="operand">0.4353</e>
+          <e type="operand">0.4609</e>
+          <e type="operand">0.4865</e>
+          <e type="operand">0.5121</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="558" top="8145" width="142" height="465" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,1,101">
+        <input>
+          <e type="operand">Fo.l</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0</e>
+          <e type="operand">0.01611</e>
+          <e type="operand">0.03221</e>
+          <e type="operand">0.04832</e>
+          <e type="operand">0.06443</e>
+          <e type="operand">0.08053</e>
+          <e type="operand">0.09664</e>
+          <e type="operand">0.1127</e>
+          <e type="operand">0.1289</e>
+          <e type="operand">0.145</e>
+          <e type="operand">0.1611</e>
+          <e type="operand">0.1772</e>
+          <e type="operand">0.1933</e>
+          <e type="operand">0.2094</e>
+          <e type="operand">0.2255</e>
+          <e type="operand">0.2416</e>
+          <e type="operand">0.2577</e>
+          <e type="operand">0.2738</e>
+          <e type="operand">0.2899</e>
+          <e type="operand">0.306</e>
+          <e type="operand">0.3221</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="1485" top="8208" width="359" height="109" color="#000000">
+      <picture>
+        <raw format="png" encoding="base64">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</raw>
+      </picture>
+    </region>
+    <region left="1440" top="8334" width="423" height="70" color="#000000">
+      <picture>
+        <raw format="png" encoding="base64">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</raw>
+      </picture>
+    </region>
+    <region left="9" top="8532" width="106" height="29" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">b</e>
+          <e type="operand">1</e>
+          <e type="operand">21</e>
+          <e type="function" args="2">range</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="9" top="8550" width="75" height="69" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">X</e>
+          <e type="operand">x</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="99" top="8559" width="53" height="27" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">x</e>
+          <e type="operand">0</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="9" top="8631" width="668" height="111" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">b</e>
+          <e type="operand">1</e>
+          <e type="operand">21</e>
+          <e type="function" args="2">range</e>
+          <e type="operand">Θ.l</e>
+          <e type="operand">b</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="bracket">(</e>
+          <e type="operand">Fo.l</e>
+          <e type="operand">b</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">16</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="3">for</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="8748" width="189" height="465" color="#000000" fontSize="12">
+      <math decimalPlaces="11" matrixOptions="0,0,1,21">
+        <input>
+          <e type="operand">Θ.l</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.85312990828</e>
+          <e type="operand">0.98497268485</e>
+          <e type="operand">0.99893143814</e>
+          <e type="operand">1.0000083701</e>
+          <e type="operand">0.99966875125</e>
+          <e type="operand">0.99883987408</e>
+          <e type="operand">0.99749389374</e>
+          <e type="operand">0.99561408837</e>
+          <e type="operand">0.99323326481</e>
+          <e type="operand">0.99040634169</e>
+          <e type="operand">0.98719352335</e>
+          <e type="operand">0.98365260631</e>
+          <e type="operand">0.97983590978</e>
+          <e type="operand">0.97578938251</e>
+          <e type="operand">0.97155270081</e>
+          <e type="operand">0.96715978609</e>
+          <e type="operand">0.96263946569</e>
+          <e type="operand">0.95801614664</e>
+          <e type="operand">0.9533104445</e>
+          <e type="operand">0.94853974498</e>
+          <e type="operand">0.94371869402</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="9225" width="655" height="127" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">b</e>
+          <e type="operand">1</e>
+          <e type="operand">21</e>
+          <e type="function" args="2">range</e>
+          <e type="operand">Θ.r</e>
+          <e type="operand">b</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Fo.r</e>
+          <e type="operand">b</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">6</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="3">for</e>
+        </input>
+      </math>
+    </region>
+    <region left="9" top="9360" width="189" height="465" color="#000000" fontSize="12">
+      <math decimalPlaces="11" matrixOptions="0,0,1,21">
+        <input>
+          <e type="operand">Θ.r</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.99962730421</e>
+          <e type="operand">1.0003034972</e>
+          <e type="operand">0.99969528976</e>
+          <e type="operand">0.99708609751</e>
+          <e type="operand">0.99148841433</e>
+          <e type="operand">0.98333433435</e>
+          <e type="operand">0.97333995193</e>
+          <e type="operand">0.9621169595</e>
+          <e type="operand">0.95011448281</e>
+          <e type="operand">0.93764542561</e>
+          <e type="operand">0.92492322579</e>
+          <e type="operand">0.91209203313</e>
+          <e type="operand">0.89924859892</e>
+          <e type="operand">0.88645748831</e>
+          <e type="operand">0.87376147889</e>
+          <e type="operand">0.86118862171</e>
+          <e type="operand">0.8487570228</e>
+          <e type="operand">0.83647807759</e>
+          <e type="operand">0.82435865759</e>
+          <e type="operand">0.8124025885</e>
+          <e type="operand">0.80061164911</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="243" top="9360" width="186" height="465" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,1,21">
+        <input>
+          <e type="operand">Θ</e>
+          <e type="operand">Θ.r</e>
+          <e type="operand">Θ.l</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <result action="numeric">
+          <e type="operand">0.8528</e>
+          <e type="operand">0.9853</e>
+          <e type="operand">0.9986</e>
+          <e type="operand">0.9971</e>
+          <e type="operand">0.9912</e>
+          <e type="operand">0.9822</e>
+          <e type="operand">0.9709</e>
+          <e type="operand">0.9579</e>
+          <e type="operand">0.9437</e>
+          <e type="operand">0.9286</e>
+          <e type="operand">0.9131</e>
+          <e type="operand">0.8972</e>
+          <e type="operand">0.8811</e>
+          <e type="operand">0.865</e>
+          <e type="operand">0.8489</e>
+          <e type="operand">0.8329</e>
+          <e type="operand">0.817</e>
+          <e type="operand">0.8014</e>
+          <e type="operand">0.7859</e>
+          <e type="operand">0.7706</e>
+          <e type="operand">0.7556</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="459" top="9558" width="241" height="70" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">r</e>
+          <e type="operand">1</e>
+          <e type="operand">Θ</e>
+          <e type="function" args="1">rows</e>
+          <e type="function" args="2">range</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">r</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">Θ</e>
+          <e type="operand">r</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.0</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">:</e>
+          <e type="function" args="3">for</e>
+        </input>
+      </math>
+    </region>
+    <region left="45" top="9828" width="152" height="465" color="#000000" fontSize="12">
+      <math matrixOptions="0,0,1,21">
+        <input>
+          <e type="operand">t.иск</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">386.6</e>
+          <e type="operand">443.7</e>
+          <e type="operand">449.4</e>
+          <e type="operand">448.7</e>
+          <e type="operand">446.2</e>
+          <e type="operand">442.3</e>
+          <e type="operand">437.5</e>
+          <e type="operand">431.9</e>
+          <e type="operand">425.7</e>
+          <e type="operand">419.2</e>
+          <e type="operand">412.5</e>
+          <e type="operand">405.7</e>
+          <e type="operand">398.8</e>
+          <e type="operand">391.8</e>
+          <e type="operand">384.9</e>
+          <e type="operand">378</e>
+          <e type="operand">371.1</e>
+          <e type="operand">364.4</e>
+          <e type="operand">357.7</e>
+          <e type="operand">351.1</e>
+          <e type="operand">344.6</e>
+          <e type="operand">21</e>
+          <e type="operand">1</e>
+          <e type="function" args="23">mat</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="10296" width="192" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>График зависимости:</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="10332" width="718" height="594" color="#000000" fontSize="12">
+      <xyplot width="708" height="586" points="100" name="XYPlot">
+        <chartstyle usedefault="false" backcolor="White" bordercolor="Black" />
+        <grid gridcolor="LightGray" gridpattern="Dash" gridthickness="1" isxgrid="true" isygrid="true" isy2grid="false" />
+        <xaxes xmin="-71.10017" xmax="675.4331" xtick="100" visible="True" decimalplaces="3" numberformat="General" />
+        <yaxes ymin="-101.5206" ymax="945.6393" ytick="200" visible="True" decimalplaces="3" numberformat="General" />
+        <y2axes isy2axis="false" y2min="-1" y2max="1" y2tick="0.5" visible="True" decimalplaces="3" numberformat="General" />
+        <title2d title="" titlefont="Arial, 10pt" titlefontcolor="Black" />
+        <xylabel labelfont="Arial, 10pt" labelfontcolor="Black" tickfont="Arial, 8pt" tickfontcolor="Black" xlabel="τ, с" ylabel="T, K" y2label="y2" />
+        <legend isbordervisible="true" islegendvisible="false" legendbackcolor="White" legendbordercolor="Black" legendfont="Arial, 8pt" legendposition="NorthEast" textcolor="Black" />
+        <traces>
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Lines" lineantialias="true" linecolor="Blue" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 0, 0, 255" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+          <trace seriesname="" isy2data="false" isvisible="true" plotmethod="Labels" lineantialias="true" linecolor="Red" linethickness="1" linepattern="Solid" filled="false" hatched="false" fillcolor="64, 255, 0, 0" hatchstyle="Percent20" symbolantialias="true" symbolsize="8" symboltype="None" symbolborderthickness="1" symbolbordercolor="Black" symbolfillcolor="White" />
+        </traces>
+        <input>
+          <e type="operand">τ</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="function" args="2">augment</e>
+          <e type="operand">τ</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="function" args="1">vectorize</e>
+          <e type="operand" style="string">.</e>
+          <e type="operand">5</e>
+          <e type="operand" style="string">red</e>
+          <e type="function" args="5">augment</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="function" args="4">sys</e>
+        </input>
+      </xyplot>
+    </region>
+    <region left="36" top="11007" width="149" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.иск</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">449.4</e>
+        </result>
+      </math>
+    </region>
+    <region left="36" top="11052" width="159" height="46" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">t.иск</e>
+          <e type="operand">21</e>
+          <e type="function" args="2">el</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">°C</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">344.6</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="11097" width="447" height="89" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">m</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">21</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand" style="unit">K</e>
+          <e type="operator" args="2">/</e>
+          <e type="function" args="1">ln</e>
+          <e type="operator" args="2">-</e>
+          <e type="operand">9</e>
+          <e type="operand" style="unit">min</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">:</e>
+        </input>
+        <contract>
+          <e type="operand">1</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">0.0005165</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="11187" width="457" height="117" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">m</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">1</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">a.l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">/</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">/</e>
+          <e type="operator" args="2">≡</e>
+          <e type="operand">a.l</e>
+          <e type="function" args="2">Solve</e>
+          <e type="function" args="1">Assign</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">3.163</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="11295" width="196" height="61" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">a.l</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">m</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand" style="unit">s</e>
+          <e type="operator" args="2">/</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">3.163</e>
+          <e type="operand">10</e>
+          <e type="operand">5</e>
+          <e type="operator" args="1">-</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="11358" width="726" height="46" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Вычислить количество теплоты, отданной цилиндром за время охлаждения от его начала, до момента τ1. </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="11412" width="605" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Для этого воспользуемся формулой для цилиндра конечных размеров</p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="11448" width="144" height="35" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.Δτ</e>
+          <e type="operand">Q.τ0</e>
+          <e type="operand">1</e>
+          <e type="operand">Θ</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11502" width="164" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>где Θ равняется </p>
+        </content>
+      </text>
+    </region>
+    <region left="0" top="11529" width="90" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ</e>
+          <e type="operand">Θ.r</e>
+          <e type="operand">Θ.l</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">≡</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11556" width="636" height="89" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ.l</e>
+          <e type="operand">2</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">sin</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">+</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operator" args="2">*</e>
+          <e type="function" args="1">cos</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.l</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="bracket">(</e>
+          <e type="operand">Fo.l</e>
+          <e type="operand">8</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">16</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11673" width="623" height="106" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ.r</e>
+          <e type="operand">2</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">0</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">1</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="function" args="2">Jv</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">+</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">/</e>
+          <e type="operand">1</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">μ.r</e>
+          <e type="operand">n</e>
+          <e type="function" args="2">el</e>
+          <e type="bracket">(</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operand">Fo.r</e>
+          <e type="operand">8</e>
+          <e type="function" args="2">el</e>
+          <e type="operator" args="2">*</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="1">-</e>
+          <e type="function" args="1">exp</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">n</e>
+          <e type="operand">1</e>
+          <e type="operand">16</e>
+          <e type="function" args="4">sum</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11772" width="298" height="59" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.τ0</e>
+          <e type="operand">π</e>
+          <e type="operand">r.0</e>
+          <e type="operand">2</e>
+          <e type="operator" args="2">^</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">L</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">ρ.ст</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">c</e>
+          <e type="operator" args="2">*</e>
+          <e type="operand">t.иск</e>
+          <e type="operand">3</e>
+          <e type="function" args="2">el</e>
+          <e type="operand">t.ж</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11826" width="92" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Θ</e>
+          <e type="operand">Θ.l</e>
+          <e type="operand">Θ.r</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11862" width="147" height="35" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.Δτ</e>
+          <e type="operand">Q.τ0</e>
+          <e type="operand">1</e>
+          <e type="operand">Θ</e>
+          <e type="operator" args="2">-</e>
+          <e type="bracket">(</e>
+          <e type="operator" args="2">*</e>
+          <e type="operator" args="2">:</e>
+        </input>
+      </math>
+    </region>
+    <region left="0" top="11898" width="119" height="34" color="#000000" fontSize="12">
+      <math>
+        <input>
+          <e type="operand">Q.Δτ</e>
+        </input>
+        <contract>
+          <e type="operand" style="unit">kJ</e>
+        </contract>
+        <result action="numeric">
+          <e type="operand">793</e>
+        </result>
+      </math>
+    </region>
+    <region left="0" top="11934" width="464" height="27" color="#000000" fontSize="12">
+      <text lang="rus" fontFamily="Cascadia Code" fontSize="12">
+        <content>
+          <p>Таким образом за 4 мин было отдано 793 кДж тепла</p>
+        </content>
+      </text>
+    </region>
+  </regions>
+</worksheet>
